@@ -47,7 +47,7 @@ The location of the files is relative to the user's home folder.
 You need a JVM to run the application. The only mandatory options are -i and -o.
 
 ```
-java -jar fhir-owl-1.0.0.jar -i [input OWL file] -o [output FHIR JSON file]
+java -jar fhir-owl-v1.1.jar -i [input OWL file] -o [output FHIR JSON file]
 ```
 
 The following options are available:
@@ -67,7 +67,7 @@ The following options are available:
 | -descriptionProp   | string      | Comma-separated list of OWL annotation properties that contain the code system description. |
 | -experimental      | boolean     | Indicates if the code system is for testing purposes or real usage. |
 | -help              | none        | Print the help message. |
-| -hierarchyMeaning  | string      | The meaning of the hierarchy of concepts as represented in this resource. Valid values are *grouped-by*, *is-a*, *part-of*, and *classified-with*.  Default is *is-a*. | 
+| -hierarchyMeaning  | string      | The meaning of the hierarchy of concepts as represented in this resource. Valid values are *grouped-by*, *is-a*, *part-of*, and *classified-with*.  Default is *is-a*. |
 | -i                 | string      | The input OWL file. |
 | -id                | string      | The technical id of the code system. Required if using PUT to upload the resource to a FHIR server. |
 | -identifier        | string      | Comma-separated list of additional business identifiers. Each business identifer has the format [system]\|[value]. |
@@ -98,7 +98,7 @@ The following options are available:
 The Human Phenotype Ontology was transformed using the following command:
 
 ```
-java -jar fhir-owl-v1.1.0.jar -i hp.owl -o hp.json -id hpo -name "HumanPhenotypeOntology" -t "Human Phenotype Ontology" -content complete -mainNs http://purl.obolibrary.org/obo/HP_ -descriptionProp http://purl.org/dc/elements/1.1/subject -status active -codeReplace _,: -useFhirExtension -dateRegex "(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})" -s http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+java -jar fhir-owl-v1.1.jar -i hp.owl -o hp.json -id hpo -name "HumanPhenotypeOntology" -t "Human Phenotype Ontology" -content complete -mainNs http://purl.obolibrary.org/obo/HP_ -descriptionProp http://purl.org/dc/elements/1.1/subject -status active -codeReplace _,: -useFhirExtension -dateRegex "(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})" -s http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
 ```
 
 You can browse the output [here](https://ontoserver.csiro.au/shrimp/?system=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2Fhp.fhir&concept=http://www.w3.org/2002/07/owl%23Thing&version=20210613&valueset=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2Fhp.fhir%3Fvs).
@@ -106,9 +106,7 @@ You can browse the output [here](https://ontoserver.csiro.au/shrimp/?system=http
 The Sequence Ontology was transformed using the following command:
 
 ```
-java -jar fhir-owl-1.0.0.jar -i so-simple.owl -o so-simple.json -id so -name "Sequence Ontology" -status active -codeReplace "_,:" -s "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym" -mainNs "http://purl.obolibrary.org/obo/SO_" -labelsToExclude "wiki,WIKI"
+java -jar fhir-owl-v1.1.jar -i so-simple.owl -o so-simple.json -id so -name "Sequence Ontology" -status active -codeReplace "_,:" -s "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym" -mainNs "http://purl.obolibrary.org/obo/SO_" -labelsToExclude "wiki,WIKI"
 ```
 
 You can browse the output [here](https://ontoserver.csiro.au/shrimp/?concept=Thing&system=http://purl.obolibrary.org/obo/so/so-simple.owl&versionId=http://purl.obolibrary.org/obo/so/so-xp.owl/so-simple.owl&fhir=https://genomics.ontoserver.csiro.au/fhir).
-
-
